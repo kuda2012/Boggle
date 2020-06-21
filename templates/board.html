@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Board</title>
+    <link rel="stylesheet" href="/static/app.css" />
+  </head>
+  <body>
+    <section id="section">
+      <button id="startGame">Start Game</button>
+      <table class="board">
+        <tbody id="length_{{board | count}}">
+          {% for row in board %}
+          <tr>
+            {% for cell in row %}
+            <td>{{ cell }}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <form action="" method="GET" id="theForm">
+        <input
+          type="text"
+          name="wordGuess"
+          id="guess"
+          placeholder="See a word? Take a guess"
+        />
+        <input type="submit" name="submit" id="submitButton" />
+      </form>
+      <div id="guessResult"></div>
+      <div id="scoreboard">Score:<span id="score"></span></div>
+      <div id="highScoreBoard">High Score:<span id="highScore"></span></div>
+    </section>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/static/app_OO.js"></script>
+  </body>
+</html>
